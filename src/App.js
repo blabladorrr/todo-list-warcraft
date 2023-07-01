@@ -1,3 +1,10 @@
+const tasks = [
+  {id: 1, content: "buy a milk", done: false},
+  {id: 2, content: "take a dog to vet", done: true},
+];
+
+const hideDoneTasks = false;
+
 function App() {
   return (
     <main className="container">
@@ -9,8 +16,8 @@ function App() {
           <h2 className="section__title">Add new task</h2>
         </header>
         <div className="section__body">
-          <form className="form js-form">
-            <input className="form__input js-newTask" placeholder="Add new to do task" />
+        <form className="form">
+            <input className="form__input" placeholder="Add new to do task" />
             <button className="form__button">Add a task</button>
           </form>
         </div>
@@ -18,10 +25,10 @@ function App() {
       <section className="section">
         <header className="section__header">
           <h2 className="section__title">Task list</h2>
-          <div className="buttons js-buttons"></div>
+          <div className="buttons"></div>
         </header>
         <div className="section__body">
-          <ul className="tasks js-tasks"></ul>
+          <ul className="tasks"></ul>
         </div>
       </section>
     </main>
