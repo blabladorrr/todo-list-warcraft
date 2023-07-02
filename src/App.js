@@ -3,9 +3,10 @@ import Tasks from "./Tasks";
 import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./Header";
+import Container from "./Container";
 
 const tasks = [
-  {id: 1, content: "buy a milk", done: true},
+  {id: 1, content: "buy a milk", done: false},
   {id: 2, content: "take a dog to vet", done: true},
 ];
 
@@ -13,7 +14,7 @@ const hideDoneTasks = false;
 
 function App() {
   return (
-    <main className="container">
+    <Container>
       <Header title="ToDo list" />
       <Section
         title="Add new task"
@@ -30,7 +31,7 @@ function App() {
           <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
         }
       />
-    </main>
+    </Container>
   );
 }
 
