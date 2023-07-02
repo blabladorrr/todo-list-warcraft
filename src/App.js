@@ -1,3 +1,5 @@
+import Form from "./Form";
+
 const tasks = [
   {id: 1, content: "buy a milk", done: false},
   {id: 2, content: "take a dog to vet", done: true},
@@ -16,10 +18,7 @@ function App() {
           <h2 className="section__title">Add new task</h2>
         </header>
         <div className="section__body">
-        <form className="form">
-            <input className="form__input" placeholder="Add new to do task" />
-            <button className="form__button">Add a task</button>
-          </form>
+          <Form />
         </div>
       </section>
       <section className="section">
