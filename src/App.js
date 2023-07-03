@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -5,30 +6,81 @@ import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
 
-const tasks = [
-  {id: 1, content: "buy a milk", done: false},
-  {id: 2, content: "take a dog to vet", done: true},
-];
-
-const hideDoneTasks = false;
-
 function App() {
+  const [ hideDoneTasks, setHideDoneTasks ] = useState(false);
+  const [ tasks, setTasks ] = useState([
+    {id: 1, content: "buy a milk", done: false},
+    {id: 2, content: "take a dog to vet", done: true},
+  ]);
+
+  const toggleHidingDoneTasks = () => {
+    setHideDoneTasks(hideDoneTasks => !hideDoneTasks);
+  }
+
+  const deleteTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id));
+  }
+
+  const toggleTaskDone = (id) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return {...task, done: !task.done};
+      }
+      return task;
+    }));
+  }
+
+  const setAllTasksAsDone = () => {
+    setTasks(tasks => tasks.map(task => (
+        {
+          ...task, 
+          done: true
+        }
+      )));
+  }
+
+  const addNewTask = (content) => {
+    if (content !== "") {
+      setTasks(
+        [
+          ...tasks,
+          {
+            id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+            content,
+            done: false,
+          },
+        ]
+      )
+    }
+  }
+
   return (
     <Container>
       <Header title="ToDo list" />
       <Section
         title="Add new task"
         body={
-          <Form />
+          <Form addNewTask={addNewTask} />
         } 
       />
       <Section 
         title="Task list"
         body={
-          <Tasks tasks={tasks} hideDoneTasks={hideDoneTasks} />
+          <Tasks 
+            tasks={tasks}
+            hideDoneTasks={hideDoneTasks} 
+            deleteTask={deleteTask}
+            toggleTaskDone={toggleTaskDone}
+            setAllTasksAsDone={setAllTasksAsDone}
+          />
         }
+
         buttons={
-          <Buttons tasks={tasks} hideDoneTasks={hideDoneTasks} />
+          <Buttons 
+            tasks={tasks} 
+            hideDoneTasks={hideDoneTasks} 
+            toggleHidingDoneTasks={toggleHidingDoneTasks} 
+          />
         }
       />
     </Container>
