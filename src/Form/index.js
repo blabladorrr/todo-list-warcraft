@@ -1,26 +1,28 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { StyledForm, FormInput, FormButton } from "./styled";
 
 const Form = ({ addNewTask }) => {
     const [ newTaskContent, setNewTaskContent ] = useState("");
+    const inputRef = useRef(null);
 
-    const preventFormSubmit = (event) => {
+    const submitForm = (event) => {
         event.preventDefault();
+        addNewTask(newTaskContent.trim());
         setNewTaskContent("");
+        inputRef.current.focus();
     }
 
     return (
         <StyledForm 
-            onSubmit={preventFormSubmit}
+            onSubmit={submitForm}
         >
             <FormInput
                 value={newTaskContent}
                 onChange={(event) => setNewTaskContent(event.target.value)}
                 placeholder="Add new to do task"
+                ref={inputRef}
             />
-            <FormButton
-                onClick={() => addNewTask(newTaskContent.trim())}
-            >
+            <FormButton>
                 Add a task
             </FormButton>
         </StyledForm>
