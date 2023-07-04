@@ -41,11 +41,11 @@ function App() {
 
   const setAllTasksAsDone = () => {
     setTasks(tasks => tasks.map(task => (
-        {
-          ...task, 
-          done: true
-        }
-      )));
+      {
+        ...task, 
+        done: true
+      }
+    )));
   }
 
   const addNewTask = (content) => {
