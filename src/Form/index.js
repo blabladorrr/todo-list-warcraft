@@ -5,19 +5,16 @@ const Form = ({ addNewTask }) => {
     const [ newTaskContent, setNewTaskContent ] = useState("");
     const inputRef = useRef(null);
 
-    const preventFormSubmit = (event) => {
+    const submimtForm = (event) => {
         event.preventDefault();
-        setNewTaskContent("");
-    }
-
-    const onButtonClick = () => {
         addNewTask(newTaskContent.trim());
+        setNewTaskContent("");
         inputRef.current.focus();
-    };
+    }
 
     return (
         <StyledForm 
-            onSubmit={preventFormSubmit}
+            onSubmit={submimtForm}
         >
             <FormInput
                 value={newTaskContent}
@@ -25,9 +22,7 @@ const Form = ({ addNewTask }) => {
                 placeholder="Add new to do task"
                 ref={inputRef}
             />
-            <FormButton
-                onClick={() => onButtonClick}
-            >
+            <FormButton>
                 Add a task
             </FormButton>
         </StyledForm>
