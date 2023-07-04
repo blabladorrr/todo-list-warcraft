@@ -80,7 +80,6 @@ function App() {
             hideDoneTasks={hideDoneTasks} 
             deleteTask={deleteTask}
             toggleTaskDone={toggleTaskDone}
-            setAllTasksAsDone={setAllTasksAsDone}
           />
         }
 
@@ -89,6 +88,7 @@ function App() {
             tasks={tasks} 
             hideDoneTasks={hideDoneTasks} 
             toggleHidingDoneTasks={toggleHidingDoneTasks} 
+            setAllTasksAsDone={setAllTasksAsDone}
           />
         }
       />
