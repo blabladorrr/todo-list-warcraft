@@ -5,7 +5,7 @@ const Form = ({ addNewTask }) => {
     const [ newTaskContent, setNewTaskContent ] = useState("");
     const inputRef = useRef(null);
 
-    const submimtForm = (event) => {
+    const submitForm = (event) => {
         event.preventDefault();
         addNewTask(newTaskContent.trim());
         setNewTaskContent("");
@@ -14,7 +14,7 @@ const Form = ({ addNewTask }) => {
 
     return (
         <StyledForm 
-            onSubmit={submimtForm}
+            onSubmit={submitForm}
         >
             <FormInput
                 value={newTaskContent}
