@@ -52,11 +52,18 @@ export const useTaskList = () => {
     }
   }
 
+  const fetchExampleTasks = () => {
+    fetch("./exampleToDoTasks.json")
+      .then(response => response.json()
+      .then(tasks => tasks.map(task => addNewTask(task.content))));
+  }
+
   return {
     tasks, 
     addNewTask, 
     toggleTaskDone, 
     setAllTasksAsDone, 
-    deleteTask
+    deleteTask,
+    fetchExampleTasks
   };
 }
