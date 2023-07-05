@@ -19,6 +19,7 @@ const TasksList = () => {
     tasks,
     addNewTask,
     toggleTaskDone,
+    toggleTaskPriority,
     setAllTasksAsDone,
     deleteTask,
     fetchExampleTasks
@@ -44,6 +45,7 @@ const TasksList = () => {
                     hideDoneTasks={hideDoneTasks} 
                     deleteTask={deleteTask}
                     toggleTaskDone={toggleTaskDone}
+                    toggleTaskPriority={toggleTaskPriority}
                     />
                 }
 

@@ -9,7 +9,7 @@ export const TasksWrapper = styled.ul`
 
 export const TaskItem = styled.li`
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto 1fr auto;
     grid-gap: 10px;
     align-items: center;
     padding: 10px;
@@ -47,5 +47,29 @@ export const TaskButton = styled.button`
         &:active {
             background: hsl(350, 83%, 57%);
         }
+    `}
+`;
+
+export const PriorityButton = styled.button`
+    border: none;
+    background: #fff;
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: 32px;
+    padding-bottom: 5px;
+    margin: 0;
+    ${({ priority }) => priority === 0 && css`
+        color: #FF1501;
+    `}
+    ${({ priority }) => priority === 1 && css`
+        color: #FF6D01;
+    `}
+    ${({ priority }) => priority === 2 && css`
+        color: #FFC901;
+    `}
+    ${({ priority }) => priority === 3 && css`
+        color: green;
+    `}
+    ${({ priority }) => priority === 4 && css`
+        color: grey;
     `}
 `;
