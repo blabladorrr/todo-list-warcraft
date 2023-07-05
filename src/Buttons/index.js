@@ -17,11 +17,11 @@ const Buttons = ({ tasks, hideDoneTasks, toggleHidingDoneTasks, setAllTasksAsDon
                     </Button>
                 </>
         )}
-        <StyledButtons
+        <Button
             onClick={fetchExampleTasks}
         >
             Download example tasks
-        </StyledButtons>
+        </Button>
     </ButtonsWrapper>
 
 );

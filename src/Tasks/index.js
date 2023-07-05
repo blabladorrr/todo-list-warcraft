@@ -1,6 +1,6 @@
-import { TasksWrapper, TaskItem, TaskContent, TaskButton } from "./styled";
+import { TasksWrapper, TaskItem, TaskContent, TaskButton, PriorityButton } from "./styled";
 
-const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone }) => (
+const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPriority }) => (
     <TasksWrapper>
         {tasks.map(task => (
             <TaskItem
@@ -13,6 +13,12 @@ const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone }) => (
                 >
                     {task.done ? "✓" : ""}
                 </TaskButton>
+                <PriorityButton 
+                    onClick={() => toggleTaskPriority(task.id)}
+                    priority={task.priority}
+                >
+                    !
+                </PriorityButton>
                 <TaskContent
                     done={task.done}
                 >

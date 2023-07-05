@@ -6,8 +6,8 @@ export const useTaskList = () => {
     tasksFromLocalStorage ? 
     JSON.parse(tasksFromLocalStorage) :
       [
-        {id: 1, content: "buy a milk", done: false},
-        {id: 2, content: "take a dog to vet", done: true},
+        {id: 1, priority: 2, content: "buy a milk", done: false},
+        {id: 2, priority: 1, content: "take a dog to vet", done: true},
       ]
     );
 
@@ -28,6 +28,15 @@ export const useTaskList = () => {
     }));
   }
 
+  const toggleTaskPriority = (id) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return {...task, priority: (task.priority + 1) % 5}
+      }
+      return task;
+    }))
+  }
+
   const setAllTasksAsDone = () => {
     setTasks(tasks => tasks.map(task => (
         {
@@ -44,6 +53,7 @@ export const useTaskList = () => {
           ...tasks,
           {
             id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+            priority: 4,
             content,
             done: false,
           },
@@ -62,6 +72,7 @@ export const useTaskList = () => {
     tasks, 
     addNewTask, 
     toggleTaskDone, 
+    toggleTaskPriority, 
     setAllTasksAsDone, 
     deleteTask,
     fetchExampleTasks
