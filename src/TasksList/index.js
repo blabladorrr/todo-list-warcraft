@@ -20,7 +20,8 @@ const TasksList = () => {
     addNewTask,
     toggleTaskDone,
     setAllTasksAsDone,
-    deleteTask
+    deleteTask,
+    fetchExampleTasks
     } = useTaskList();
 
     return (
@@ -52,6 +53,7 @@ const TasksList = () => {
                     hideDoneTasks={hideDoneTasks} 
                     toggleHidingDoneTasks={toggleHidingDoneTasks} 
                     setAllTasksAsDone={setAllTasksAsDone}
+                    fetchExampleTasks={fetchExampleTasks}
                     />
                 }
                 />
