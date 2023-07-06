@@ -16,26 +16,25 @@ export const FormInput = styled.input`
     padding: 8px;
     display: flex;
     align-self: center;
-    border: 2px solid #e2e2e2;
+    border: 2px solid ${({ theme }) => theme.color.mercury};
 `;
 
 export const FormButton = styled.button`
-    background-color: #027381;
-    color: #fff;
+    color: ${({ theme }) => theme.color.white};
     padding: 10px;
     margin-left: 20px;
     width: 200px;
-    background: hsl(250, 100%, 25%);
+    background: ${({ theme }) => theme.color.navy};
     border: none;
     transition: 0.3s;
     cursor: pointer;
     &:hover {
-        background: hsl(250, 100%, 30%);
+        filter: brightness(120%);
         transform: scale(1.1);
     }
     
     &:active {
-        background: hsl(250, 100%, 35%);
+        filter: brightness(160%);
     }
     @media (max-width: ${({ theme }) => theme.devicePort.mobile}px) {
         width: 100%;

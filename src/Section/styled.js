@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
-    background-color: #fff;
-    box-shadow: 0 2px #eee;
+    background-color: ${({ theme }) => theme.color.white};
+    box-shadow: 0 2px ${({ theme }) => theme.color.gallery};
     display: flex;
     flex-direction: column;
     max-width: 900px;
     margin: 10px 0;
-    border: 1px solid #e2e2e2;
+    border: 1px solid ${({ theme }) => theme.color.mercury};
     padding: 5px 20px;
 `;
 

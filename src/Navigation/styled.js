@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledNav = styled.nav`
-    background: hsl(250, 100%, 25%);
-    color: white;
+    background: ${({ theme }) => theme.color.navy};
+    color: ${({ theme }) => theme.color.white};
     padding: 10px 0;
     width: 100%;
     display: flex;
@@ -40,5 +40,5 @@ export const NavListPoints = styled.li`
 export const StyledNavLink = styled(NavLink)`
     padding: 0 20px;
     text-decoration: none;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
 `;
