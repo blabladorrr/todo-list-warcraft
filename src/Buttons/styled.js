@@ -6,7 +6,7 @@ export const ButtonsWrapper = styled.div`
 `; 
 
 export const Button = styled.button`
-    color: hsl(250, 100%, 25%);
+    color: ${({ theme }) => theme.color.navy};
     border: none;
     background-color: transparent;
     transition: 0.5s;
@@ -15,9 +15,10 @@ export const Button = styled.button`
         margin: 10px;
     }
     &:hover {
-        color: hsl(250, 100%, 70%);
+        filter: brightness(450%);
     }
     &:disabled {
-        color: #ccc;
+        filter: brightness(100%);
+        color: ${({ theme }) => theme.color.silver}
     }
 `;

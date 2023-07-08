@@ -13,7 +13,7 @@ export const TaskItem = styled.li`
     grid-gap: 10px;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid ${({ theme }) => theme.color.alto};
     ${({ hidden }) => hidden && css`
         display: none;
     `}
@@ -28,24 +28,24 @@ export const TaskContent = styled.span`
 export const TaskButton = styled.button`
     border: none;
     border-radius: 10%;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
     width: 30px;
     height: 30px;
     padding: 0;
     transition: 0.3s;
     ${({ toggleDone }) => toggleDone && css`
-        background: hsl(108, 72%, 24%);
+        background: ${({ theme }) => theme.color.bilbao};
         &:hover {
-            background: hsl(108, 72%, 34%);
+            filter: brightness(140%);
         }
     `}
     ${({ remove }) => remove && css`
-        background: hsl(350, 83%, 47%);
+        background: ${({ theme }) => theme.color.crimson};
         &:hover {
-            background: hsl(350, 83%, 52%);
+            filter: brightness(110%);
         }
         &:active {
-            background: hsl(350, 83%, 57%);
+            filter: brightness(120%);
         }
     `}
 `;
@@ -58,18 +58,18 @@ export const PriorityButton = styled.button`
     padding-bottom: 5px;
     margin: 0;
     ${({ priority }) => priority === 0 && css`
-        color: #FF1501;
+        color: ${({ theme }) => theme.color.scarlet};
     `}
     ${({ priority }) => priority === 1 && css`
-        color: #FF6D01;
+        color: ${({ theme }) => theme.color.blaze};
     `}
     ${({ priority }) => priority === 2 && css`
-        color: #FFC901;
+        color: ${({ theme }) => theme.color.supernova};
     `}
     ${({ priority }) => priority === 3 && css`
-        color: green;
+        color: ${({ theme }) => theme.color.green};
     `}
     ${({ priority }) => priority === 4 && css`
-        color: grey;
+        color: ${({ theme }) => theme.color.grey};
     `}
 `;
