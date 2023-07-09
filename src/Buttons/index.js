@@ -1,4 +1,4 @@
-import { ButtonsWrapper, Button } from "./styled";
+import { ButtonsWrapper, Button, ExportCSV } from "./styled";
 
 const Buttons = ({ tasks, hideDoneTasks, toggleHidingDoneTasks, setAllTasksAsDone, fetchExampleTasks }) => (
     <ButtonsWrapper>
@@ -22,6 +22,7 @@ const Buttons = ({ tasks, hideDoneTasks, toggleHidingDoneTasks, setAllTasksAsDon
         >
             Download example tasks
         </Button>
+        <ExportCSV data={tasks}>Export to CSV</ExportCSV>
     </ButtonsWrapper>
 
 );
