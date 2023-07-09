@@ -22,7 +22,9 @@ const TasksList = () => {
     toggleTaskPriority,
     setAllTasksAsDone,
     deleteTask,
-    fetchExampleTasks
+    fetchExampleTasks,
+    editTaskContent,
+    setIsTaskEdited
     } = useTaskList();
 
     return (
@@ -46,6 +48,8 @@ const TasksList = () => {
                     deleteTask={deleteTask}
                     toggleTaskDone={toggleTaskDone}
                     toggleTaskPriority={toggleTaskPriority}
+                    editTaskContent={editTaskContent}
+                    setIsTaskEdited={setIsTaskEdited}
                     />
                 }
 

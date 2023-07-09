@@ -73,3 +73,21 @@ export const PriorityButton = styled.button`
         color: ${({ theme }) => theme.color.grey};
     `}
 `;
+
+export const TaskContentButton = styled.button`
+    border: none;
+    background: ${({ theme }) => theme.color.white};
+    ${({ done }) => done && css`
+        text-decoration: line-through;
+    `}
+    &:hover {
+        border: 1px solid  ${({ theme }) => theme.color.mercury};
+        border-radius: 5px;
+    }
+`;
+
+export const TaskContentInput = styled.input`
+    border: 1px solid ${({ theme }) => theme.color.mercury};
+    width: 50%;
+    border-radius: 5px;
+`
