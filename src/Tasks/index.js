@@ -1,9 +1,6 @@
-import { useRef } from "react";
 import { TasksWrapper, TaskItem, TaskContent, TaskButton, PriorityButton, TaskContentButton, TaskContentInput } from "./styled";
 
 const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPriority, editTaskContent, setIsTaskEdited }) => {
-    const editedInput = useRef(null);
-
     const setIsEditedProperty = (id) => {
         setIsTaskEdited(id, true);
     }
@@ -38,11 +35,11 @@ const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPri
                     >
                         { task.isEdited ? (
                                 <TaskContentInput
-                                    ref={editedInput}
                                     value={task.content}
                                     onChange={(event) => editTaskContent(task.id, event.target.value)}
                                     onBlur={() => setIsTaskEdited(task.id, false)}
                                     onKeyPress={(event) => onKeyPress(event, task.id)}
+                                    autoFocus
                                 />
                             ) : (
                                 <TaskContentButton
