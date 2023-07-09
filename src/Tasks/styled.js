@@ -74,7 +74,7 @@ export const PriorityButton = styled.button`
     `}
 `;
 
-export const TaskContentButton = styled.button`
+export const EditContentButton = styled.button`
     border: none;
     background: ${({ theme }) => theme.color.white};
     ${({ done }) => done && css`
@@ -86,7 +86,7 @@ export const TaskContentButton = styled.button`
     }
 `;
 
-export const TaskContentInput = styled.input`
+export const EditContentInput = styled.input`
     border: 1px solid ${({ theme }) => theme.color.mercury};
     width: 50%;
     border-radius: 5px;
