@@ -1,6 +1,6 @@
-import { TasksWrapper, TaskItem, TaskContent, TaskButton, PriorityButton, TaskContentButton, TaskContentInput } from "./styled";
+import { TasksWrapper, TaskItem, TaskContent, TaskButton, PriorityButton, EditContentButton, EditContentInput, DueDateButton, DueDateInput } from "./styled";
 
-const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPriority, editTaskContent, setIsTaskEdited }) => {
+const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPriority, editTaskContent, setIsTaskEdited, setTaskDueDate, setIsDueDateEdited }) => {
     const setIsEditedProperty = (id) => {
         setIsTaskEdited(id, true);
     }
@@ -34,7 +34,7 @@ const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPri
                         done={task.done}
                     >
                         { task.isEdited ? (
-                                <TaskContentInput
+                                <EditContentInput
                                     value={task.content}
                                     onChange={(event) => editTaskContent(task.id, event.target.value)}
                                     onBlur={() => setIsTaskEdited(task.id, false)}
@@ -42,15 +42,35 @@ const Tasks = ({ tasks, hideDoneTasks, deleteTask, toggleTaskDone, toggleTaskPri
                                     autoFocus
                                 />
                             ) : (
-                                <TaskContentButton
+                                <EditContentButton
                                     done={task.done}
                                     onClick={() => setIsEditedProperty(task.id)}
                                 >
                                     {task.content}
-                                </TaskContentButton>
+                                </EditContentButton>
                             )
                         }
                     </TaskContent>
+                    { task.isDueDateEdited ? (
+                            <DueDateInput
+                                value={task.dueDate}
+                                onChange={(event) => setTaskDueDate(task.id, event.target.value)}
+                                onBlur={() => setIsDueDateEdited(task.id, false)}
+                                autoFocus
+                            />
+                        ) : (
+                            <DueDateButton
+                                onClick={() => setIsDueDateEdited(task.id, true)}
+                            >
+                                Due: {(!(task.dueDate === "None")) ? 
+                                        (new Date(task.dueDate)).toLocaleDateString(
+                                            undefined, 
+                                            {month: "long", weekday: "short", day: "numeric", year: "numeric"}) 
+                                        : "None"}
+                            </DueDateButton>
+
+                        ) 
+                    }
                     <TaskButton
                         remove 
                         onClick={() => deleteTask(task.id)}

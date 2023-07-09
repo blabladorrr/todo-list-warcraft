@@ -6,8 +6,8 @@ export const useTaskList = () => {
     tasksFromLocalStorage ? 
     JSON.parse(tasksFromLocalStorage) :
       [
-        {id: 1, priority: 2, content: "buy a milk", done: false, isEdited: false},
-        {id: 2, priority: 1, content: "take a dog to vet", done: true, isEdited: false},
+        {id: 1, priority: 2, content: "buy a milk", done: false, dueDate: "None", isEdited: false, isDueDateEdited: false},
+        {id: 2, priority: 1, content: "take a dog to vet", done: true, dueDate: "None", isEdited: false, isDueDateEdited: false},
       ]
     );
 
@@ -56,6 +56,7 @@ export const useTaskList = () => {
             priority: 4,
             content,
             done: false,
+            dueDate: "None",
             isEdited: false,
           },
         ]
@@ -87,6 +88,24 @@ export const useTaskList = () => {
     }));
   }
 
+  const setTaskDueDate = (id, date) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return {...task, dueDate: date}
+      }
+      return task;
+    }))
+  }
+
+  const setIsDueDateEdited = (id, isDueEdited) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return {...task, isDueDateEdited: isDueEdited }
+      }
+      return task;
+    }));
+  }
+
   return {
     tasks, 
     addNewTask, 
@@ -96,6 +115,8 @@ export const useTaskList = () => {
     deleteTask,
     fetchExampleTasks,
     editTaskContent,
-    setIsTaskEdited
+    setIsTaskEdited,
+    setTaskDueDate,
+    setIsDueDateEdited
   };
 }

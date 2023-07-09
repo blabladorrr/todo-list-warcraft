@@ -24,7 +24,9 @@ const TasksList = () => {
     deleteTask,
     fetchExampleTasks,
     editTaskContent,
-    setIsTaskEdited
+    setIsTaskEdited,
+    setIsDueDateEdited,
+    setTaskDueDate
     } = useTaskList();
 
     return (
@@ -50,6 +52,8 @@ const TasksList = () => {
                     toggleTaskPriority={toggleTaskPriority}
                     editTaskContent={editTaskContent}
                     setIsTaskEdited={setIsTaskEdited}
+                    setIsDueDateEdited={setIsDueDateEdited}
+                    setTaskDueDate={setTaskDueDate}
                     />
                 }
 
