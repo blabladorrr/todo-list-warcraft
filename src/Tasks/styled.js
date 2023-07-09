@@ -9,7 +9,7 @@ export const TasksWrapper = styled.ul`
 
 export const TaskItem = styled.li`
     display: grid;
-    grid-template-columns: auto auto 1fr auto;
+    grid-template-columns: auto auto 1fr auto auto;
     grid-gap: 10px;
     align-items: center;
     padding: 10px;
@@ -90,4 +90,17 @@ export const TaskContentInput = styled.input`
     border: 1px solid ${({ theme }) => theme.color.mercury};
     width: 50%;
     border-radius: 5px;
-`
+`;
+
+export const DueDateButton = styled.button`
+    background: ${({ theme }) => theme.color.white};
+    border: none;
+    &:hover {
+        border: 1px solid ${({ theme }) => theme.color.mercury};
+        border-radius: 5px;
+    }
+`;
+
+export const DueDateInput = styled.input.attrs({ type: "date" })`
+    border: 1px solid black;
+`;
