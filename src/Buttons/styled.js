@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { CSVLink } from "react-csv";
 
 export const ButtonsWrapper = styled.div`
     display: flex;
@@ -20,5 +21,16 @@ export const Button = styled.button`
     &:disabled {
         filter: brightness(100%);
         color: ${({ theme }) => theme.color.silver}
+    }
+`;
+
+export const ExportCSV = styled(CSVLink)`
+    padding-left: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    color: ${({ theme }) => theme.color.navy};
+    text-decoration: none;
+    &:hover {
+        filter: brightness(450%);
     }
 `;
